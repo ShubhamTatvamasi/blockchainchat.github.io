@@ -15,7 +15,7 @@ function startWeb3() {
 function getTotalMessages() {
   blockchainChatContract.totalMessages(function (error, result) {
     totalMessages = result.c[0];
-    console.log("Total messages are " + totalMessages);
+    document.getElementById("TotalMessages").innerHTML = totalMessages;
     getAllMessages();
   })
 }
@@ -28,8 +28,6 @@ function getAllMessages() {
 
 function getMessages(messageNumber) {
   blockchainChatContract.messages(messageNumber, function (error, result) {
-    // totalMessages = result.c[0];
-    console.log(result);
     getName(result);
   })
 }
