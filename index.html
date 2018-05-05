@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<!-- Head Start -->
+<head>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="style.css">
+  <title>BlockchainChat</title>
+</head>
+<!-- Head End -->
+
+<!-- Body Start -->
+<!-- startWeb3 function should start only after the webpage is loaded -->
+<body onload="setTimeout(startWeb3, 1000)">
+
+	<div style="float: left;">
+		New Message: <input placeholder="Say Hi" type="text" id="NewMessage">
+	      <button type="submit" onclick="newMessage()">Send</button>
+
+	</div>
+
+	<div style="float: right;">
+		New Name: <input placeholder="Satoshi Nakamoto" type="text" id="NewName">
+	      <button type="submit" onclick="newName()">Update Name</button>
+
+	</div>
+
+	<h2 style="text-align: center;">Rinkeby Blockchain Chat Messages</h2>
+
+	<div id="chat_list"></div>
+
+
+
+<script src="contract.js"></script>
+<script src="app.js"></script>
+
+</body>
+<!-- Body End -->
+</html>
