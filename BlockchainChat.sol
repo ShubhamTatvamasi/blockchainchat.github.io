@@ -3,6 +3,8 @@ pragma solidity ^0.4.0;
 contract BlockchainChat {
     
     mapping (address => string) public members;
+	mapping (address => uint) public timeCalled;
+
     Message[] public messages;
     uint private messageNumber;
     
@@ -13,6 +15,9 @@ contract BlockchainChat {
     }    
     
     function newMessage(string _message) public {
+		// Check if the 10 seconds have been passed since the last function call.
+        require(timeCalled[msg.sender] + 10 < now);
+    	timeCalled[msg.sender] = now;
         messageNumber = messages.length++;
         Message storage m = messages[messageNumber];
         m.from = msg.sender;
