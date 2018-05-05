@@ -37,15 +37,15 @@ function getMessages(messageNumber) {
 
 function getName(argument) {
 
-    var newName = argument[0];
+    var newAddress = argument[0];
     var newMessage = argument[1];
     var newTime = argument[2];
-    blockchainChatContract.members(newName, function (error, result) {
-      postOnPage(result, newMessage, newTime);
+    blockchainChatContract.members(newAddress, function (error, result) {
+      postOnPage(result, newAddress, newMessage, newTime);
     });
 }
 
-function postOnPage(_name, _message, _time) {
+function postOnPage(_name, _address, _message, _time) {
 
         var d = new Date(0);
         d.setUTCSeconds(_time);
@@ -54,7 +54,7 @@ function postOnPage(_name, _message, _time) {
         var a3 = '</span><span class="time-right">';
         var a4 = '</span></div>'
 
-        var cardTemplate = a1 + _message + a2 + _name + a3 + d + a4;
+        var cardTemplate = a1 + _message + a2 + _name +' - '+ _address + a3 + d + a4;
 
         var mydiv = document.getElementById("chat_list");
         var newDiv = document.createElement('div');
