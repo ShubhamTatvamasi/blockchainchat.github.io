@@ -18,7 +18,6 @@ contract BlockchainChat {
         m.from = msg.sender;
         m.message = _message;
         m.time = now;
-        
     }
     
     function updateName(string _name) public {
