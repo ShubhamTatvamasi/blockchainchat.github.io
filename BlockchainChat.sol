@@ -15,8 +15,8 @@ contract BlockchainChat {
     }    
     
     function newMessage(string _message) public {
-		// Check if the 10 seconds have been passed since the last function call.
-        require(timeCalled[msg.sender] + 10 < now);
+	// Check if the 5 seconds have been passed since the last function call.
+        require(timeCalled[msg.sender] + 5 < now);
     	timeCalled[msg.sender] = now;
         messageNumber = messages.length++;
         Message storage m = messages[messageNumber];
