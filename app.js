@@ -47,8 +47,8 @@ function postOnPage(_name, _address, _message, _time) {
 
         var d = new Date(0);
         d.setUTCSeconds(_time);
-        var a1 = '<div class="container"><p>';
-        var a2 = '</p><span class="sender-left">';
+        var a1 = '<div class="container"><xmp>';
+        var a2 = '</xmp><span class="sender-left">';
         var a3 = '</span><span class="time-right">';
         var a4 = '</span></div>'
 
