@@ -57,7 +57,7 @@ function postOnPage(_name, _address, _message, _time) {
         var a3 = '</span><span class="time-right">';
         var a4 = '</span></div>'
 
-        var cardTemplate = a1 + _message + a2 + _name +' - '+ _address + a3 + d + a4;
+        var cardTemplate = a1 + _message + a2 + _name +' - '+ _address +' '+ a3 + d + a4;
 
         var mydiv = document.getElementById("chat_list");
         var newDiv = document.createElement('div');
