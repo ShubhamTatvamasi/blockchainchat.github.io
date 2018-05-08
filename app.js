@@ -4,11 +4,9 @@ var blockchainChatContract;
 var totalMessages;
 
 // Web3 start function, It will run when the web page is loaded
-function startWeb3() {
 
   blockchainChatContract = web3.eth.contract(blockchainChatABI).at(blockchainChatAddress);
   getTotalMessages();
-}
 
 // Get the list of total number of messages
 function getTotalMessages() {

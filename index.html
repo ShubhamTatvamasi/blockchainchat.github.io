@@ -6,12 +6,23 @@
 
   <link rel="stylesheet" href="style.css">
   <title>Blockchain Chat</title>
+    <script src="web3.min.js"></script>
+  <script>
+
+	if (typeof web3 !== 'undefined') {
+	  web3 = new Web3(web3.currentProvider);
+	} else {
+	  // set the provider you want from Web3.providers
+	  web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/MxI3XE1XTy3obXg7dLp9"));
+	}
+
+  </script>
 </head>
 <!-- Head End -->
 
 <!-- Body Start -->
 <!-- startWeb3 function should start only after the webpage is loaded -->
-<body onload="setTimeout(startWeb3, 1000)">
+<body>
 
 	<div style="float: left;">
 		New Message: <input placeholder="Say Hi" type="text" id="NewMessage">
