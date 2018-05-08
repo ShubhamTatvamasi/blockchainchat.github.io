@@ -1,4 +1,4 @@
-// Token Contract Interface
+// Blockchain Chat Contract Interface
 var blockchainChatContract;
 // Total Messages
 var totalMessages;
