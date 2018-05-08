@@ -53,7 +53,7 @@ function postOnPage(_name, _address, _message, _time) {
         var a1 = '<div class="container"><xmp>';
         var a2 = '</xmp><span class="sender-left">';
         var a3 = '<a href="https://rinkeby.etherscan.io/address/'+_address+'" target="_blank">'
-        var a4 = ' </a></span><span class="time-right">';
+        var a4 = '</a></span><span class="time-right"> ';
         var a5 = '</span></div>'
 
         var cardTemplate = a1 + _message + a2 + _name +' - '+ a3 + _address + a4 + d + a5;
