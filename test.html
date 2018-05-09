@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	
+<script src="js/web3.min.js"></script>
+<script src="js/ethereumjs-tx-1.3.3.min.js"></script>
+<script src="js/contract.js"></script>
+<script>
+
+  var account = "0xbe862AD9AbFe6f22BCb087716c7D89a26051f74C";
+  var privateKey = "e331b6d69882b4cb4ea581d88e0b604039a3de5967688d3dcffdd2270c0fd109";
+  var message = "Hi from the Foundation";
+  var web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/MxI3XE1XTy3obXg7dLp9"));
+  var blockchainChatContract = web3.eth.contract(blockchainChatABI).at(blockchainChatAddress);
+
+  web3.eth.getTransactionCount(account, function (err, nonce) {
+
+    var data = blockchainChatContract.newMessage.getData(message);
+
+    var tx = new ethereumjs.Tx({
+      nonce: nonce,
+      gasPrice: web3.toHex(web3.toWei('1', 'gwei')),
+      gasLimit: 1000000,
+      to: blockchainChatAddress,
+      value: 0,
+      data: data,
+    });
+
+    tx.sign(ethereumjs.Buffer.Buffer.from(privateKey, 'hex'));
+
+    var raw = '0x' + tx.serialize().toString('hex');
+
+    web3.eth.sendRawTransaction(raw, function (err, transactionHash) {
+      console.log(transactionHash);
+    });
+  });
+</script>
+
+</body>
+</html>
