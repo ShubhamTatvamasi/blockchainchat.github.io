@@ -2,6 +2,8 @@
 var userPrivateKey = "";
 // User's Public Key
 var userPublicKey = "";
+// User's Account Nonce
+var userNonce = 0;
 
 // generate new address
 function generateNewAddress() {
@@ -30,16 +32,23 @@ function getPublicKey(_privateKey) {
   userPublicKey = publicKeyCheckSum;
   document.getElementById("PrivateKey").innerHTML = userPrivateKey;
   document.getElementById("PublicKey").innerHTML = userPublicKey;
+  getNonce();
+}
+
+// Get the user's account nonce
+function getNonce() {
+
+  web3.eth.getTransactionCount(userPublicKey, function (err, nonce) {
+    userNonce = nonce;
+  })  
 }
 
 // Send Transaction to the Blockchain
 function sendTransaction(_data) {
 
-  web3.eth.getTransactionCount(userPublicKey, function (err, nonce) {
-
       var formatedPrivteKey = userPrivateKey.substring(2);
       var tx = new ethereumjs.Tx({
-        nonce: nonce,
+        nonce: userNonce,
         gasPrice: web3.toHex(web3.toWei('1', 'gwei')),
         gasLimit: 1e6,
         to: blockchainChatAddress,
@@ -54,6 +63,7 @@ function sendTransaction(_data) {
       web3.eth.sendRawTransaction(raw, function (err, transactionHash) {
         console.log(transactionHash);
       });
-    })
+
+      userNonce++;
 }
 
