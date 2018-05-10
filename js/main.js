@@ -51,24 +51,23 @@ function getNonce() {
 // Send Transaction to the Blockchain
 function sendTransaction(_data) {
 
-      var formatedPrivteKey = userPrivateKey.substring(2);
-      var tx = new ethereumjs.Tx({
-        nonce: userNonce,
-        gasPrice: web3.toHex(web3.toWei("1", "gwei")),
-        gasLimit: 1e6,
-        to: blockchainChatAddress,
-        value: 0,
-        data: _data,
-      });
+  var formatedPrivteKey = userPrivateKey.substring(2);
+  var tx = new ethereumjs.Tx({
+    nonce: userNonce,
+    gasPrice: web3.toHex(web3.toWei("1", "gwei")),
+    gasLimit: 1e6,
+    to: blockchainChatAddress,
+    value: 0,
+    data: _data,
+  });
 
-      tx.sign(ethereumjs.Buffer.Buffer.from(formatedPrivteKey, "hex"));
+  tx.sign(ethereumjs.Buffer.Buffer.from(formatedPrivteKey, "hex"));
 
-      var raw = "0x" + tx.serialize().toString("hex");
+  var raw = "0x" + tx.serialize().toString("hex");
 
-      web3.eth.sendRawTransaction(raw, function (err, transactionHash) {
-        console.log(transactionHash);
-      });
+  web3.eth.sendRawTransaction(raw, function (err, transactionHash) {
+    console.log(transactionHash);
+  });
 
-      userNonce++;
+  userNonce++;
 }
-
