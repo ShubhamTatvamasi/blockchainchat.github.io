@@ -1,5 +1,6 @@
-
+// User's Private Key
 var userPrivateKey = "";
+// User's Public Key
 var userPublicKey = "";
 
 // generate new address
