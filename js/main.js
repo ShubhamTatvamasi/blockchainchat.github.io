@@ -31,8 +31,8 @@ function getPublicKey(_privateKey) {
   document.getElementById("PublicKey").innerHTML = userPublicKey;
 }
 
-
-function sentTransaction(_data) {
+// Send Transaction to the Blockchain
+function sendTransaction(_data) {
 
   web3.eth.getTransactionCount(userPublicKey, function (err, nonce) {
 

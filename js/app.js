@@ -86,7 +86,7 @@ function newName2() {
 
     var name = document.getElementById("NewName").value;
     var data = blockchainChatContract.updateName.getData(name);
-    sentTransaction(data);
+    sendTransaction(data);
 }
 
 // Send new message 2 in smart contract
@@ -94,5 +94,5 @@ function newMessage2() {
 
     var message = document.getElementById("NewMessage").value;
     var data = blockchainChatContract.newMessage.getData(message);
-    sentTransaction(data);
+    sendTransaction(data);
 }
