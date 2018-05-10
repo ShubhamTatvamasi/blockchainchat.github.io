@@ -40,7 +40,7 @@ function sentTransaction(_data) {
       var tx = new ethereumjs.Tx({
         nonce: nonce,
         gasPrice: web3.toHex(web3.toWei('1', 'gwei')),
-        gasLimit: 1000000,
+        gasLimit: 1e6,
         to: blockchainChatAddress,
         value: 0,
         data: _data,
