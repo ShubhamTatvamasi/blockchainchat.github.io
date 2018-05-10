@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<!-- Head Start -->
+<head>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="css/style.css">
+  <title>Blockchain Chat</title>
+    <script src="js/web3.min.js"></script>
+    <script src="js/ethereumjs-wallet-0.6.0.min.js"></script>
+  <script>
+	  // set the provider you want from Web3.providers
+	  web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/MxI3XE1XTy3obXg7dLp9"));
+  </script>
+</head>
+<!-- Head End -->
+
+<!-- Body Start -->
+<body>
+
+	<div style="float: left;">
+		New Message: <input placeholder="Say Hi" type="text" id="NewMessage">
+	      <button type="submit" onclick="newMessage2()">Send</button>
+
+	</div>
+
+	<div style="float: right;">
+		New Name: <input placeholder="Satoshi Nakamoto" type="text" id="NewName">
+	      <button type="submit" onclick="newName2()">Update Name</button>
+
+	</div>
+
+	<h2 style="text-align: center;">Rinkeby Blockchain Chat Messages <span id="TotalMessages"></span></h2>
+
+	<div style="float: left;">
+		Generate New Address: <button type="submit" onclick="generateNewAddress()">Generate</button>
+
+	</div>
+
+	<div style="float: right;">
+		Enter Private Key: <input placeholder="0x0" type="text" id="UserPrivateKey">
+	      <button type="submit" onclick="userProvidedPrivateKey()">Enter</button>
+
+	</div>
+
+	<div style="text-align: center;">
+	<p>
+		Private Key: <span id="PrivateKey"></span><br> 
+		Public Key: <span id="PublicKey"></span> 
+	</p>
+	</div>
+
+	<div id="chat_list"></div>
+
+
+<script src="js/contract.js"></script>
+<script src="js/app.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+<!-- Body End -->
+</html>
