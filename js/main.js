@@ -10,7 +10,7 @@ function generateNewAddress() {
 
   var wallet = ethereumjs.Wallet.generate();
   var walletPrivateKey = wallet.privKey;
-  getPublicKey(walletPrivateKey);
+  getPublicKey(walletPrivateKey, false);
 }
 
 // Getting private key from the user for signing the transactions
@@ -23,11 +23,11 @@ function userProvidedPrivateKey() {
         userPrivateKey = "0x" + userPrivateKey;
     }
 
-  getPublicKey(userPrivateKey);
+  getPublicKey(userPrivateKey, true);
 }
 
 // Generating the public key
-function getPublicKey(_privateKey) {
+function getPublicKey(_privateKey, _getNonce) {
 
   var publicKeyBuff = ethereumjs.Util.privateToAddress(_privateKey);
   var privateKey = ethereumjs.Util.bufferToHex(_privateKey);
@@ -37,7 +37,9 @@ function getPublicKey(_privateKey) {
   userPublicKey = publicKeyCheckSum;
   document.getElementById("PrivateKey").innerHTML = userPrivateKey;
   document.getElementById("PublicKey").innerHTML = userPublicKey;
-  getNonce();
+  if (_getNonce == true) {
+    getNonce();
+  }
 }
 
 // Get the user's account nonce
