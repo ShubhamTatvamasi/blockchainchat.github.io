@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<!-- Head Start -->
+<head>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="css/style.css">
+  <title>Blockchain Chat</title>
+    <script src="js/web3.min.js"></script>
+    <script src="js/ethereumjs-wallet-0.6.0.min.js"></script>
+  <script>
+	  // set the provider you want from Web3.providers
+	  web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/MxI3XE1XTy3obXg7dLp9"));
+  </script>
+</head>
+<!-- Head End -->
+
+<!-- Body Start -->
+<body>
+
+	<div style="float: left;">
+		New Message: <input placeholder="Say Hi" type="text" id="NewMessage">
+	      <button type="submit" onclick="newMessage2()">Send</button>
+
+	</div>
+
+	<div style="float: right;">
+		New Name: <input placeholder="Satoshi Nakamoto" type="text" id="NewName">
+	      <button type="submit" onclick="newName2()">Update Name</button>
+
+	</div>
+
+	<h2 style="text-align: center;">Rinkeby Blockchain Chat Messages <span id="TotalMessages"></span></h2>
+
+
+	<div id="chat_list"></div>
+
+
+<script src="js/contract.js"></script>
+<script src="js/app.js"></script>
+<script src="js/main.js"></script>
+<script>
+	var userPrivateKey = "0xe331b6d69882b4cb4ea581d88e0b604039a3de5967688d3dcffdd2270c0fd109";
+	var userPublicKey = "0xbe862AD9AbFe6f22BCb087716c7D89a26051f74C";
+	getNonce();
+</script>
+</body>
+<!-- Body End -->
+</html>
