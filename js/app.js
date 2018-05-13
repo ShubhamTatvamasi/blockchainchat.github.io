@@ -72,6 +72,7 @@ function newName() {
 
     var name = document.getElementById("NewName").value;
     blockchainChatContract.updateName(name, function (error, result) {})
+    document.getElementById("NewName").value = "";
 }
 
 // Send new message in smart contract
@@ -79,6 +80,7 @@ function newMessage() {
 
     var message = document.getElementById("NewMessage").value;
     blockchainChatContract.newMessage(message, function (error, result) {})
+    document.getElementById("NewMessage").value = "";
 }
 
 // Update new name 2 in smart contract
@@ -87,6 +89,7 @@ function newName2() {
     var name = document.getElementById("NewName").value;
     var data = blockchainChatContract.updateName.getData(name);
     sendTransaction(data);
+    document.getElementById("NewName").value = "";
 }
 
 // Send new message 2 in smart contract
@@ -95,4 +98,5 @@ function newMessage2() {
     var message = document.getElementById("NewMessage").value;
     var data = blockchainChatContract.newMessage.getData(message);
     sendTransaction(data);
+    document.getElementById("NewMessage").value = "";
 }
