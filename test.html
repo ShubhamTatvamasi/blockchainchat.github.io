@@ -13,7 +13,7 @@
   var account = "0x12345da127d2ab88e92c3bc3ab78fd3ffe30da5b";
   var privateKey = "0f12bbe9fa77aad882b973b433e64d44691f1c3ca826bd8a9223e485ad45bdd3";
   var message = "Hi from the Foundation";
-  var web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/MxI3XE1XTy3obXg7dLp9"));
+  var web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io"));
   var blockchainChatContract = web3.eth.contract(blockchainChatABI).at(blockchainChatAddress);
 
   web3.eth.getTransactionCount(account, function (err, nonce) {
